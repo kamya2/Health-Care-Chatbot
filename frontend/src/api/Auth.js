@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import { getApiCall, postApiCall } from '../utils/Api';
 
 export const loginUser = async (data) => {
