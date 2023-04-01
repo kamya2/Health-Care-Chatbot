@@ -1,0 +1,37 @@
+.cs-message-input__content-editor,
+.cs-message-input__content-editor-wrapper {
+  background-color: #fff;
+}
+
+.cs-button--attachment {
+  display: none;
+}
+
+.cs-button--send {
+  color: #000;
+}
+
+.cs-message__content {
+  background-color: hsla(256, 100%, 50%, 0.767) !important;
+  color: #fff !important;
+}
+
+.cs-message {
+
+  margin: 0px;
+  margin-top: 20px !important;
+}
+.cs-message--avatar-tr .cs-message__avatar{
+  align-items: end !important;
+}
+.cs-chat-container {
+  padding-top: 20px;
+}
+
+.cs-typing-indicator__dot {
+  background-color: hsla(256, 100%, 50%, 0.767) !important;
+}
+
+.cs-typing-indicator__text {
+  color: hsla(256, 100%, 50%, 0.767) !important;
+}

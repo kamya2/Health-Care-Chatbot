@@ -16,6 +16,7 @@ import {
 import { ToastrProvider } from './contexts/ToastrContext';
 import './assets/styles/fonts.css';
 import AppThemeProvider from './contexts/ThemeContext';
+import './App.css';
 
 const App = () => {
   useEffect(async () => {
