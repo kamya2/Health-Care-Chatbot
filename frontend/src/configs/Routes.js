@@ -6,6 +6,7 @@ const RoutePaths = {
   LOGOUT: '/logout',
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
+  CHAT: '/chat/:conversationId',
 };
 
 export default RoutePaths;

@@ -12,16 +12,23 @@ import {
   HomePage,
   ResetPasswordPage,
   SignupPage,
+  ChatPage,
 } from './views';
 import { ToastrProvider } from './contexts/ToastrContext';
 import './assets/styles/fonts.css';
 import AppThemeProvider from './contexts/ThemeContext';
 import './App.css';
+import { validateSession } from './api/Auth';
 
 const App = () => {
   useEffect(async () => {
     try {
-      // DO SOMETHING
+      const result = await validateSession();
+      if (result.success) {
+        window.localStorage.setItem('isLoggedIn', true);
+      } else {
+        // DO SOMETHING
+      }
     } catch {
       // DO SOMETHING
     }
@@ -35,6 +42,7 @@ const App = () => {
           <Router>
             <Switch>
               <Route exact path={RoutePaths.HOME} component={HomePage} />
+              <Route exact path={RoutePaths.CHAT} component={ChatPage} />
               <Route exact path={RoutePaths.SIGN_UP} component={SignupPage} />
               <Route exact path={RoutePaths.LOGIN} component={LoginPage} />
               <Route exact path={RoutePaths.FORGOT_PASSWORD} component={ForgotPasswordPage} />

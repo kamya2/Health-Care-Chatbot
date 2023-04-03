@@ -55,7 +55,8 @@ class HealthCareChatBot:
         self.phase_one_find_answers = FindQueryResultPhaseOne()
 
     def get_response(self, user_query):
-        classified_result = self.que_classifier.classify_que_category(user_query)
+        classified_result = self.que_classifier.classify_que_category(
+            user_query)
 
         if not classified_result:
             _, second_phase_answer = find_similar_question(user_query)
@@ -76,9 +77,10 @@ class HealthCareChatBot:
 
             return "I'm not entirely sure if I grasp the question, but this is what I discovered: " + second_phase_answer
 
-        sql_query = self.query_generator.generate_query(classified_result)
+        cypher_query = self.query_generator.generate_query(classified_result)
 
-        bot_answer = self.phase_one_find_answers.phase_one_searcher(sql_query)
+        bot_answer = self.phase_one_find_answers.phase_one_searcher(
+            cypher_query)
 
         if not bot_answer:
             # Perform Stage 2: Using Datasets by checking question similarity in a loop and extracting answer from least score

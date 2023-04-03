@@ -5,11 +5,11 @@ class FindQueryResultPhaseOne:
         self.g = Graph("bolt://localhost:7687", auth=("neo4j", "12345678"))
         self.num_limit = 20
 
-    def phase_one_searcher(self, sqls):
+    def phase_one_searcher(self, cypher_querys):
         final_answers = []
-        for sql_ in sqls:
-            question_type = sql_['question_type']
-            queries = sql_['sql']
+        for cypher_query_ in cypher_querys:
+            question_type = cypher_query_['question_type']
+            queries = cypher_query_['cypher_query']
             answers = []
             for query in queries:
                 ress = self.g.run(query).data()

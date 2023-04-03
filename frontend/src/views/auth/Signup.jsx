@@ -31,18 +31,23 @@ const Register = () => {
         showErrorToastr('Passwords does not match.');
         return;
       }
-      const toSubmitData = {
+      const userData = {
         first_name: data.firstName,
         last_name: data.lastName,
         email: data.email,
         password: data.password,
         confirm_password: data.confirmPassword,
       };
-      await registerUser(toSubmitData);
-      showSuccessToastr('Logged in successfully.');
-      window.localStorage.setItem('isLoggedIn', true);
-      window.location.assign(RoutePaths.HOME);
-      setProcessing(false);
+
+      const response = await registerUser(userData);
+
+      if (response.success) {
+        showSuccessToastr('Registered and logged in successfully');
+        window.localStorage.setItem('isLoggedIn', true);
+        window.location.assign(RoutePaths.HOME);
+      } else {
+        showErrorToastr(response.message);
+      }
     } catch (error) {
       showErrorToastr(error?.message || 'Something went wrong.');
       setProcessing(false);

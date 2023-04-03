@@ -5,6 +5,7 @@ import ResetPasswordPage from './auth/ResetPassword';
 import NotFoundPage from './NotFound';
 import HomePage from './Home';
 import SignupPage from './auth/Signup';
+import ChatPage from './Chat';
 
 export {
   LoginPage,
@@ -14,4 +15,5 @@ export {
   HomePage,
   ResetPasswordPage,
   SignupPage,
+  ChatPage,
 };

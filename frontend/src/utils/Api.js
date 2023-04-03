@@ -7,6 +7,7 @@ export const postApiCall = async (endpoint, data) => {
     url: `${process.env.REACT_APP_API_ENDPOINT}${endpoint}`,
     method: 'POST',
     data: data || {},
+    withCredentials: true,
   };
 
   try {
@@ -25,6 +26,7 @@ export const getApiCall = async (endpoint) => {
     url: `${process.env.REACT_APP_API_ENDPOINT}${endpoint}`,
     method: 'GET',
     data: {},
+    withCredentials: true,
   };
 
   try {
@@ -43,6 +45,7 @@ export const deleteApiCall = async (endpoint) => {
     url: `${process.env.REACT_APP_API_ENDPOINT}${endpoint}`,
     method: 'DELETE',
     data: {},
+    withCredentials: true,
   };
 
   try {

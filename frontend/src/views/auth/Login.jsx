@@ -24,15 +24,22 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     setProcessing(true);
+
     try {
-      const toSubmitData = { ...data };
-      await loginUser(toSubmitData);
-      showSuccessToastr('Logged in successfully.');
-      window.localStorage.setItem('isLoggedIn', true);
-      window.location.assign(RoutePaths.HOME);
-      setProcessing(false);
-    } catch ({ response }) {
-      showErrorToastr(response?.data || 'Something went wrong.');
+      const userData = { ...data };
+      const response = await loginUser(userData);
+
+      if (response.success) {
+        showSuccessToastr('Logged in successfully');
+        window.localStorage.setItem('isLoggedIn', true);
+        window.location.assign(RoutePaths.HOME);
+        setProcessing(false);
+      } else {
+        showErrorToastr(response.message);
+        setProcessing(false);
+      }
+    } catch (e) {
+      showErrorToastr(e?.message || 'Something went wrong.');
       setProcessing(false);
     }
   };
@@ -40,7 +47,7 @@ const Login = () => {
   // useEffect(() => {
   //   validateSession().then(() => {
   //     window.localStorage.setItem('isLoggedIn', true);
-  //     //window.location.assign(RoutePaths.HOME);
+  //     window.location.assign(RoutePaths.HOME);
   //   });
   // }, []);
 

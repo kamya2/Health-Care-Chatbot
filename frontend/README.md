@@ -25,14 +25,11 @@ Then copy the .env-sample and save it with .env file, and fill in the configurat
 
 ## Run the application
 
-**Run the app:**
-
+**Run the frontend app: at /frontend**
 `npm start`
 
-**Build the app:**
+**Run the backend app: at /backend**
 
-`npm run build`
-
-**Check source code errors:**
-
-`npm run lint`
+`export FLASK_APP=main.py`
+<br />
+`flask run --port=PORT_NUMBER`
